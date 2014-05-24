@@ -7,8 +7,9 @@ import ExecutionContext.Implicits.global
 import io.Source._
 import play.Play
 import java.io.File
+
 /**
- *
+ * Apocryphal implementation of the CMS backend
  */
 object Cms extends Controller {
 

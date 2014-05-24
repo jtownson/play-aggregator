@@ -6,9 +6,9 @@
 GET /business-tier/json/time            controllers.TimeService.current
 
 # CMS
-GET /cms/:content                       controllers.Cms.get(content: String)
+GET /cms/*contentPath                       controllers.Cms.get(contentPath: String)
 
 
 # Aggregator App
 GET /components/:component              controllers.Aggregator.component(component, businessUrl)
-GET /*path                              controllers.Aggregator.page(path)
+GET /*path                              controllers.Aggregator.page(path: String)

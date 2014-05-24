@@ -7,7 +7,7 @@ import org.joda.time.DateTime
 import ExecutionContext.Implicits.global
 
 /**
- *
+ * A service that returns some business data.
  */
 object TimeService extends Controller {
 

@@ -39,13 +39,13 @@ What can we do to solve this problem?
 
 This demo explores a potential solution that has three key features
 
-- The webapp as an abstract aggregator, with one controller for all endpoints (i.e., all endpoints that share the
+- An abstract (business + cms) aggregator, with one controller for all endpoints (i.e., all endpoints that share the
 _Ok(aTin, someBeans)_ implementation above).
 - All site content and *markup* schemes defined in the CMS. This affords all the flexibility offered by the CMS (of sharing/forking markup 
 between pages/sites). This avoids hardcoding a snapshot of this scheme in a webapp.
 - REST-based business data coming, as *json*, from HTTP service components. The *HTML* rendering/markup for the business data is also defined in the CMS.
-The business tier in this demo maintains the <esi> or <html> style shown in Chris James's play-esi. (As far as the aggregator is 
-concerned, the business tier could be any REST API on the internet).
+The business tier in this demo maintains the esi or html style shown in Chris James's play-esi. (As far as the aggregator is 
+concerned, the business tier can be any REST API on the internet).
 
 For me, the spike also served for learning more about Scala and Play. Apache velocity is used as the template language,
 so it shows how to implement a template plugin for Play.  
@@ -68,10 +68,32 @@ so it shows how to implement a template plugin for Play.
 - Browse to
 `http://biomedcentral.com:9000/index`
 - Explore the code to see what's going on (see below)
+- Hit the CMS 'simulator'. The simulated content for the page biomedcentral.com/index comes from `http://localhost:9000/cms/biomedcentral.com/index`
+- Hit the JSON business objects. e.g. `http://localhost:9000/business-tier/json/time`
+- Hit a rendered business component e.g. `http://biomedcentral.com:9000/components/time?businessUrl=http%3A%2F%2Flocalhost%3A9000%2Fbusiness-tier%2Fjson%2Ftime`
+- Hit the same component, but with the X-VARNISH header.
+
+## To play
+
+- Modify the "page-template" value in resources/cms/biomedcentral.com/components/time to use global-time.vm. 
+Hit `http://biomedcentral.com:9000/index` to see the difference.
+- Copy the content under resources/cms/biomedcentral.com/index to another under resources/cms/biomedcentral.com/article.
+Hit `http://biomedcentral.com:9000/article`. Create a new article.vm template and modify the article content to
+point to this template. Hit `http://biomedcentral.com:9000/article` again.
+- Create a genomebiology.com directory under resources/cms. Setup content files as for biomedcentral.com. Now you have
+enabled a new site.
+- *The steps above created new pages and sites, with no code changes. As long as the business services exist,
+creating web pages is just that: creating web pages*.
+
 
 ## Notes
 
-## Potential problems: coherence
+## What's not covered
 
+Caching of CMS content. CMS servers are known to be flaky (i.e. not designed with the same througput and uptime requirements as live webservers).
+In this demo, though, there's a very chatty conversion with the CMS. In any real system, CMS content would have to be 
+*persistently cached* in some kind of key-value store. Obviously, where the content happens to reside is secondary to 
+where it is _defined_. 
 
+Other controller behaviours. Stuff like login and form handling clearly does not fit into the standard (aTin + someBeans + 200) algorithm.
 
