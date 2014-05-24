@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>$pageContent.get('title')</title>
+    </head>
+    <body>
+        <p>
+        This is a homepage template with content-item defined as: $pageContent.get('content-item')
+        </p>
+        <p>
+        It has a business component with site specific rendering. Here it is:
+        </p>
+        $requestTool.render('http://biomedcentral.com:9000/components/time?businessUrl=http%3A%2F%2Flocalhost%3A9000%2Fbusiness-tier%2Fjson%2Ftime')
+        <p>Woo hoo!</p>
+    </body>
+</html>

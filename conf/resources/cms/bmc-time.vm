@@ -1,0 +1,3 @@
+<div>
+The TimeService for the biomedcentral.com homepage: $businessData.get('time')
+</div>

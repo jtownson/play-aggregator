@@ -1,0 +1,14 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Business tier server
+GET /business-tier/json/time            controllers.TimeService.current
+
+# CMS
+GET /cms/:content                       controllers.Cms.get(content: String)
+
+
+# Aggregator App
+GET /components/:component              controllers.Aggregator.component(component, businessUrl)
+GET /*path                              controllers.Aggregator.page(path)

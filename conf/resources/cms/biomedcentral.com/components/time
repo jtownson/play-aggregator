@@ -1,0 +1,11 @@
+{
+  "requestUri" : "http://cm-int-delivery-01.springer-sbm.com/springer-cms/rest/v1/page/biomedcentral-com/components/time",
+  "message" : "OK",
+  "responseCode" : 200,
+  "projectVersion" : "1.6.1-SNAPSHOT-b672a03b78cad159f09fa72501a3a02d1f1228d5-2014-05-23_10:14:40.0920",
+  "payload" : {
+    "@type" : "Page",
+    "page-template": "bmc-time.vm",
+    "title" : "n/a"
+  }
+}

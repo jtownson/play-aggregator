@@ -1,0 +1,1 @@
+<esi:include xmlns:esi="http://www.edge-delivery.org/esi/1.0" src="$url" onerror="continue"/>

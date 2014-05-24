@@ -1,0 +1,17 @@
+{
+  "requestUri" : "http://cm-int-delivery-01.springer-sbm.com/springer-cms/rest/v1/page/biomedcentral-com-index",
+  "message" : "OK",
+  "responseCode" : 200,
+  "projectVersion" : "1.6.1-SNAPSHOT-b672a03b78cad159f09fa72501a3a02d1f1228d5-2014-05-23_10:14:40.0920",
+  "payload" : {
+    "@type" : "Page",
+    "content-item" : "some text from CMS.",
+    "page-template": "index.vm",
+    "content" : "rs:17954",
+    "locale" : "en",
+    "alternatives" : null,
+    "requestLocale" : "en",
+    "detailView" : false,
+    "title" : "biomedcentral.com homepage"
+  }
+}
