@@ -71,7 +71,7 @@ so it shows how to implement a template plugin for Play.
 
 ## Notes
 
-## Coherence
+## Potential problems: coherence
 
-##
+
 
