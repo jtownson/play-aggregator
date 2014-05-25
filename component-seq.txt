@@ -1,0 +1,13 @@
+title Render a business component
+UA->Aggregator: GET aComp
+Aggregator->Aggregator: if X-VARNISH return ESI
+Aggregator->CMS: GET contentOf aComp
+Aggregator->Aggregator: query page-template
+Aggregator->CMS: GET page-template
+Aggregator->BusinessService: GET aComp.json
+note right of Aggregator
+    This call
+    returns JSON
+end note
+Aggregator->Aggregator: render page-template, aComp.json
+Aggregator->UA: Ok aComp.html

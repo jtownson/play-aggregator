@@ -1,0 +1,17 @@
+title Aggregation (aPage with time-service)
+
+UA->Aggregator: GET aPage
+Aggregator->CMS: GET contentOf aPage
+Aggregator->Aggregator: query page-template property
+Aggregator->Aggregator: render aPage
+note right of Aggregator
+    business html comps
+    fetched in context
+    of render
+end note
+Aggregator-> Aggregator: GET time-service
+Aggregator->CMS: GET contentOf time-service  for aPage
+Aggregator->Aggregator: query page-template property
+Aggregator->TimeService: getJson
+Aggregator->Aggregator: render time-service
+Aggregator->UA: 200(aPage)
